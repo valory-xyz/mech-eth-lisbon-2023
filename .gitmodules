@@ -1,0 +1,3 @@
+[submodule "lib/ai-registry-mech"]
+	path = lib/ai-registry-mech
+	url = https://github.com/valory-xyz/ai-registry-mech
