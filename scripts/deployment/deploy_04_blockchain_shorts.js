@@ -29,8 +29,8 @@ async function main() {
             return;
         }
     } else if (providerName === "zkevmpolygon") {
-        if (!process.env.ZKEVM_POLYGON_API_KEY) {
-            console.log("set ZKEVM_POLYGON_API_KEY env variable");
+        if (!process.env.ZKSCAN_POLYGON_API_KEY) {
+            console.log("set ZKSCAN_POLYGON_API_KEY env variable");
             return;
         }
     } else {
@@ -54,8 +54,13 @@ async function main() {
     console.log("1. EOA to deploy BlockchainShorts");
     const BlockchainShorts = await ethers.getContractFactory("BlockchainShorts");
     console.log("You are signing the following transaction: BlockchainShorts.connect(EOA).deploy()");
-    const gasPrice = ethers.utils.parseUnits(gasPriceInGwei, "gwei");
-    const blockchainShorts = await BlockchainShorts.connect(EOA).deploy(blockchainShortsName, blockchainShortsSymbol, baseURI, { gasPrice });
+    let blockchainShorts = await BlockchainShorts.connect(EOA).deploy(blockchainShortsName, blockchainShortsSymbol, baseURI);
+    if (gasPriceInGwei === "0") {
+        ///
+    } else {
+        const gasPrice = ethers.utils.parseUnits(gasPriceInGwei, "gwei");
+        blockchainShorts = await BlockchainShorts.connect(EOA).deploy(blockchainShortsName, blockchainShortsSymbol, baseURI, { gasPrice });
+    }
     const result = await blockchainShorts.deployed();
 
     // Transaction details

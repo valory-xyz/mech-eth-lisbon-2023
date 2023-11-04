@@ -27,8 +27,8 @@ async function main() {
             return;
         }
     } else if (providerName === "zkevmpolygon") {
-        if (!process.env.ZKEVM_POLYGON_API_KEY) {
-            console.log("set ZKEVM_POLYGON_API_KEY env variable");
+        if (!process.env.ZKSCAN_POLYGON_API_KEY) {
+            console.log("set ZKSCAN_POLYGON_API_KEY env variable");
             return;
         }
     } else {
@@ -52,8 +52,13 @@ async function main() {
     console.log("2. EOA to deploy AgentFactory pointed to AgentRegistry");
     const AgentFactory = await ethers.getContractFactory("AgentFactoryX");
     console.log("You are signing the following transaction: AgentFactory.connect(EOA).deploy()");
-    const gasPrice = ethers.utils.parseUnits(gasPriceInGwei, "gwei");
-    const agentFactory = await AgentFactory.connect(EOA).deploy(agentRegistryAddress, { gasPrice });
+    let agentFactory = await AgentFactory.connect(EOA).deploy(agentRegistryAddress);
+    if (gasPriceInGwei === "0") {
+        ///
+    } else {
+        const gasPrice = ethers.utils.parseUnits(gasPriceInGwei, "gwei");
+        agentRegistry = await AgentFactory.connect(EOA).deploy(agentRegistryAddress, { gasPrice });
+    }
     const result = await agentFactory.deployed();
 
     // Transaction details

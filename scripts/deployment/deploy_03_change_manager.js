@@ -27,8 +27,8 @@ async function main() {
             return;
         }
     } else if (providerName === "zkevmpolygon") {
-        if (!process.env.ZKEVM_POLYGON_API_KEY) {
-            console.log("set ZKEVM_POLYGON_API_KEY env variable");
+        if (!process.env.ZKSCAN_POLYGON_API_KEY) {
+            console.log("set ZKSCAN_POLYGON_API_KEY env variable");
             return;
         }
     } else {

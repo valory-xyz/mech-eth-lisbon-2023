@@ -25,7 +25,7 @@ if (!TESTNET_MNEMONIC) {
     accounts.accountsBalance = "100000000000000000000000000";
 }
 
-const ZKSCAN_API_KEY = process.env.ZKSCAN_API_KEY;
+const ZKSCAN_POLYGON_API_KEY = process.env.ZKSCAN_POLYGON_API_KEY;
 const NEONSCAN_API_KEY = process.env.NEONSCAN_API_KEY;
 const GNOSISSCAN_API_KEY = process.env.GNOSISSCAN_API_KEY;
 
@@ -81,7 +81,7 @@ module.exports = {
             },
         ],
         apiKey: {
-            zkevmpolygon: ZKSCAN_API_KEY,
+            zkevmpolygon: ZKSCAN_POLYGON_API_KEY,
             gnosis: GNOSISSCAN_API_KEY,
             neon: NEONSCAN_API_KEY,
         }
