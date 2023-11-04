@@ -15,7 +15,6 @@ async function main() {
     const derivationPath = parsedData.derivationPath;
     const providerName = parsedData.providerName;
     const networkURL = parsedData.networkURL;
-    const price = parsedData.price;
     let EOA;
 
     if (providerName === "gnosis") {
@@ -57,10 +56,10 @@ async function main() {
     const deployer = await EOA.getAddress();
     console.log("EOA is:", deployer);
 
-    safeVersion = "1.3.0"
+    const safeVersion = "1.3.0";
     const safeFactory = await SafeFactory.create({ ethAdapter, safeVersion });
 
-    const owners = [deployer, "0x87b85ed1E049D2023CF51f92C04103CCD4107c9c"]
+    const owners = [deployer, "0x87b85ed1E049D2023CF51f92C04103CCD4107c9c"];
     const threshold = 1;
     const safeAccountConfig = {
         owners,
@@ -73,9 +72,9 @@ async function main() {
     // Transaction signing and execution
     // 3. EOA to deploy safe;
     console.log("You are signing the following transaction: deploy safe");
-    const safeSdk = await safeFactory.deploySafe({ safeAccountConfig })
+    const safeSdk = await safeFactory.deploySafe({ safeAccountConfig });
 
-    const newSafeAddress = await safeSdk.getAddress()
+    const newSafeAddress = await safeSdk.getAddress();
     console.log("New safe address:", newSafeAddress);
 }
 
