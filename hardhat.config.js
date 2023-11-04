@@ -10,10 +10,6 @@ require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
 require("@nomicfoundation/hardhat-toolbox");
 
-const ALCHEMY_API_KEY_MAINNET = process.env.ALCHEMY_API_KEY_MAINNET;
-const ALCHEMY_API_KEY_MATIC = process.env.ALCHEMY_API_KEY_MATIC;
-const ALCHEMY_API_KEY_GOERLI = process.env.ALCHEMY_API_KEY_GOERLI;
-const ALCHEMY_API_KEY_MUMBAI = process.env.ALCHEMY_API_KEY_MUMBAI;
 let TESTNET_MNEMONIC = process.env.TESTNET_MNEMONIC;
 
 const accounts = {
@@ -29,10 +25,9 @@ if (!TESTNET_MNEMONIC) {
     accounts.accountsBalance = "100000000000000000000000000";
 }
 
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
-const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY;
+const ZKSCAN_API_KEY = process.env.ZKSCAN_API_KEY;
+const NEONSCAN_API_KEY = process.env.NEONSCAN_API_KEY;
 const GNOSISSCAN_API_KEY = process.env.GNOSISSCAN_API_KEY;
-const CHIADOSCAN_API_KEY = "10200";
 
 module.exports = {
     networks: {

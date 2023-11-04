@@ -11,6 +11,7 @@ async function main() {
     const useLedger = parsedData.useLedger;
     const derivationPath = parsedData.derivationPath;
     const providerName = parsedData.providerName;
+    const networkURL = parsedData.networkURL;
     const gasPriceInGwei = parsedData.gasPriceInGwei;
     const agentRegistryName = parsedData.agentRegistryName;
     const agentRegistrySymbol = parsedData.agentRegistrySymbol;

@@ -11,6 +11,7 @@ async function main() {
     const useLedger = parsedData.useLedger;
     const derivationPath = parsedData.derivationPath;
     const providerName = parsedData.providerName;
+    const networkURL = parsedData.networkURL;
     const agentRegistryAddress = parsedData.agentRegistryAddress;
     const agentFactoryAddress = parsedData.agentFactoryAddress;
     let EOA;

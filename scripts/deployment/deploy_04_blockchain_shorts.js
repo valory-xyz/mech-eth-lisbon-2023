@@ -11,6 +11,8 @@ async function main() {
     const useLedger = parsedData.useLedger;
     const derivationPath = parsedData.derivationPath;
     const providerName = parsedData.providerName;
+    const networkURL = parsedData.networkURL;
+    const gasPriceInGwei = parsedData.gasPriceInGwei;
     const blockchainShortsName = parsedData.blockchainShortsName;
     const blockchainShortsSymbol = parsedData.blockchainShortsSymbol;
     const baseURI = parsedData.baseURI;

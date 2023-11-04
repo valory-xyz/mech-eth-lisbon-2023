@@ -4,14 +4,10 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 describe("BlockchainShorts", function () {
-    let componentRegistry;
     let agentRegistry;
     let signers;
-    const componentHash = "0x" + "5".repeat(64);
     const agentHash = "0x" + "9".repeat(64);
-    const agentHash1 = "0x" + "1".repeat(64);
     const agentHash2 = "0x" + "2".repeat(64);
-    const dependencies = [1];
     const AddressZero = "0x" + "0".repeat(40);
     beforeEach(async function () {
         const BlockchainShorts = await ethers.getContractFactory("BlockchainShorts");
@@ -74,7 +70,6 @@ describe("BlockchainShorts", function () {
             const mechManager = signers[1];
             const user = signers[2];
             const tokenId = 1;
-            const lastDependencies = [1, 2];
             await agentRegistry.connect(mechManager).create(user.address, agentHash2);
 
             expect(await agentRegistry.ownerOf(tokenId)).to.equal(user.address);
