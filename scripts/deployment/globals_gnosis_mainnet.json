@@ -11,6 +11,6 @@
   "agentRegistryAddress": "",
   "agentFactoryAddress": "",
   "agentMechAddress": "",
-  "blockchainShortsName": "",
-  "blockchainShortsSymbol": ""
+  "blockchainShortsName": "BlockchainShorts",
+  "blockchainShortsSymbol": "BS"
 }
