@@ -57,7 +57,7 @@ async function main() {
         ///
     } else {
         const gasPrice = ethers.utils.parseUnits(gasPriceInGwei, "gwei");
-        agentRegistry = await AgentFactory.connect(EOA).deploy(agentRegistryAddress, { gasPrice });
+        agentFactory = await AgentFactory.connect(EOA).deploy(agentRegistryAddress, { gasPrice });
     }
     const result = await agentFactory.deployed();
 
