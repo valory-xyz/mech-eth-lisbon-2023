@@ -1,3 +1,6 @@
 [submodule "lib/ai-registry-mech"]
 	path = lib/ai-registry-mech
 	url = https://github.com/valory-xyz/ai-registry-mech
+[submodule "lib/solmate"]
+	path = lib/solmate
+	url = https://github.com/transmissions11/solmate
