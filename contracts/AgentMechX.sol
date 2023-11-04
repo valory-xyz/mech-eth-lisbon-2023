@@ -32,7 +32,7 @@ contract AgentMechX is AgentMech {
     function _preRequest(uint256 amount, uint256 requestIdWithNonce, bytes memory data) internal override {
         // Check if paid by subscription
         if (amount == 0 && price <= subscriptionBalanceOf[msg.sender]) {
-            subscriptionBalanceOf[msg.sender] - price;
+            subscriptionBalanceOf[msg.sender] -= price;
             return;
         }
         super._preRequest(amount, requestIdWithNonce, data);

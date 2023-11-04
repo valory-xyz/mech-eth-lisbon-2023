@@ -70,8 +70,16 @@ describe("AgentMechX", function () {
             // Create a request
             await agentMech.subscribe(deployer.address, {value: price});
 
+            // Get the subscriptionBalance
+            let balance = await agentMech.subscriptionBalanceOf(deployer.address);
+            expect(balance).to.equal(price);
+
             // Create a request
             await agentMech.request(data);
+
+            // Get the subscriptionBalance
+            balance = await agentMech.subscriptionBalanceOf(deployer.address);
+            expect(balance).to.equal(0);
 
             // Get the requests count
             const requestsCount = await agentMech.getRequestsCount(deployer.address);
