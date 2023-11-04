@@ -18,6 +18,12 @@ This repo extends AgentMech for Eth Lisbon 2023.
 - [First Mech](https://zkevm.polygonscan.com/address/0x101b799648efa84ddbfd7c64ec708107317d62e4) 
 - [BlockchainShorts](https://zkevm.polygonscan.com/address/0x34C895f302D0b5cf52ec0Edd3945321EB0f83dd5)
 
+### Neon Deployment:
+
+- [AgentRegistryX](https://neonscan.org/address/0x9338b5153AE39BB89f50468E608eD9d764B755fD)
+- [AgentFactoryX](https://neonscan.org/address/0xE3607b00E75f6405248323A9417ff6b39B244b50)
+- [First Mech](https://neonscan.org/address/0xd81964075e24b6f8e4e1569c5f08e6697d9f2d25) 
+- [BlockchainShorts](https://neonscan.org/address/0x3d77596beb0f130a4415df3D2D8232B3d3D31e44)
 
 ## Development
 

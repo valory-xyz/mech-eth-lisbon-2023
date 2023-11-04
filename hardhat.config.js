@@ -75,7 +75,7 @@ module.exports = {
                 network: "neon",
                 chainId: 245022934,
                 urls: {
-                    apiURL: "https://neon-proxy-mainnet.solana.p2p.org",
+                    apiURL: "https://api.neonscan.org/hardhat/verify",
                     browserURL: "https://neonscan.org/"
                 },
             },

@@ -39,46 +39,46 @@ async function main() {
     }
 
     const provider = new ethers.providers.JsonRpcProvider(networkURL);
-    const signers = await ethers.getSigners();
+    // const signers = await ethers.getSigners();
 
-    if (useLedger) {
-        EOA = new LedgerSigner(provider, derivationPath);
-    } else {
-        EOA = signers[0];
-    }
-    // EOA address
-    const deployer = await EOA.getAddress();
-    console.log("EOA is:", deployer);
+    // if (useLedger) {
+    //     EOA = new LedgerSigner(provider, derivationPath);
+    // } else {
+    //     EOA = signers[0];
+    // }
+    // // EOA address
+    // const deployer = await EOA.getAddress();
+    // console.log("EOA is:", deployer);
 
-    // Transaction signing and execution
-    console.log("1. EOA to deploy BlockchainShorts");
-    const BlockchainShorts = await ethers.getContractFactory("BlockchainShorts");
-    console.log("You are signing the following transaction: BlockchainShorts.connect(EOA).deploy()");
-    let blockchainShorts = await BlockchainShorts.connect(EOA).deploy(blockchainShortsName, blockchainShortsSymbol, baseURI);
-    if (gasPriceInGwei === "0") {
-        ///
-    } else {
-        const gasPrice = ethers.utils.parseUnits(gasPriceInGwei, "gwei");
-        blockchainShorts = await BlockchainShorts.connect(EOA).deploy(blockchainShortsName, blockchainShortsSymbol, baseURI, { gasPrice });
-    }
-    const result = await blockchainShorts.deployed();
+    // // Transaction signing and execution
+    // console.log("1. EOA to deploy BlockchainShorts");
+    // const BlockchainShorts = await ethers.getContractFactory("BlockchainShorts");
+    // console.log("You are signing the following transaction: BlockchainShorts.connect(EOA).deploy()");
+    // let blockchainShorts = await BlockchainShorts.connect(EOA).deploy(blockchainShortsName, blockchainShortsSymbol, baseURI);
+    // if (gasPriceInGwei === "0") {
+    //     ///
+    // } else {
+    //     const gasPrice = ethers.utils.parseUnits(gasPriceInGwei, "gwei");
+    //     blockchainShorts = await BlockchainShorts.connect(EOA).deploy(blockchainShortsName, blockchainShortsSymbol, baseURI, { gasPrice });
+    // }
+    // const result = await blockchainShorts.deployed();
 
-    // Transaction details
-    console.log("Contract deployment: BlockchainShorts");
-    console.log("Contract address:", blockchainShorts.address);
-    console.log("Transaction:", result.deployTransaction.hash);
+    // // Transaction details
+    // console.log("Contract deployment: BlockchainShorts");
+    // console.log("Contract address:", blockchainShorts.address);
+    // console.log("Transaction:", result.deployTransaction.hash);
 
-    // Wait for half a minute for the transaction completion
-    await new Promise(r => setTimeout(r, 30000));
+    // // Wait for half a minute for the transaction completion
+    // await new Promise(r => setTimeout(r, 30000));
 
-    // Writing updated parameters back to the JSON file
-    parsedData.blockchainShortsAddress = blockchainShorts.address;
-    fs.writeFileSync(globalsFile, JSON.stringify(parsedData));
+    // // Writing updated parameters back to the JSON file
+    // parsedData.blockchainShortsAddress = blockchainShorts.address;
+    // fs.writeFileSync(globalsFile, JSON.stringify(parsedData));
 
     // Contract verification
     if (parsedData.contractVerification) {
         const execSync = require("child_process").execSync;
-        execSync("npx hardhat verify --constructor-args scripts/deployment/verify_03_blockchain_shorts.js --network " + providerName + " " + blockchainShorts.address, { encoding: "utf-8" });
+        execSync("npx hardhat verify --constructor-args scripts/deployment/verify_03_blockchain_shorts.js --network " + providerName + " " + parsedData.blockchainShortsAddress, { encoding: "utf-8" });
     }
 }
 
