@@ -6,11 +6,12 @@
   "gasPriceInGwei": "5",
   "networkURL": "https://rpc.gnosischain.com",
   "baseURI": "https://gateway.autonolas.tech/ipfs/",
-  "agentRegistryName": "AI Agent Registry",
+  "agentRegistryName": "AI Agent Registry X",
   "agentRegistrySymbol": "AI-AGENT-V2",
-  "agentRegistryAddress": "",
-  "agentFactoryAddress": "",
+  "agentRegistryAddress": "0x84B4DA67B37B1EA1dea9c7044042C1d2297b80a0",
+  "agentFactoryAddress": "0x2C3F556Ff33B6b5279C85CA99ed2Ba8351A2E9Bf",
   "agentMechAddress": "",
   "blockchainShortsName": "BlockchainShorts",
-  "blockchainShortsSymbol": "BS"
+  "blockchainShortsSymbol": "BS",
+  "blockchainShortsAddress":"0x4891f5894634DcD6d11644fe8E56756EF2681582"
 }
