@@ -10,6 +10,7 @@ This repo extends AgentMech for Eth Lisbon 2023.
 - [AgentFactoryX](https://gnosisscan.io/address/0x2C3F556Ff33B6b5279C85CA99ed2Ba8351A2E9Bf)
 - [First Mech](https://gnosisscan.io/address/0x1847f93501704f9aa67fe8af5de7e999af5d0970) 
 - [BlockchainShorts](https://gnosisscan.io/address/0x4891f5894634DcD6d11644fe8E56756EF2681582)
+- [Mech Multisig](https://gnosisscan.io/address/0x71126f6eeC5eCDC663e12E8f74FB2021a6e8A7d2)
 
 ### zkEVM Polygon Deployment:
 
@@ -17,6 +18,7 @@ This repo extends AgentMech for Eth Lisbon 2023.
 - [AgentFactoryX](https://zkevm.polygonscan.com/address/0x3C1fF68f5aa342D296d4DEe4Bb1cACCA912D95fE)
 - [First Mech](https://zkevm.polygonscan.com/address/0x101b799648efa84ddbfd7c64ec708107317d62e4) 
 - [BlockchainShorts](https://zkevm.polygonscan.com/address/0x34C895f302D0b5cf52ec0Edd3945321EB0f83dd5)
+- [Mech Multisig](https://zkevm.polygonscan.com/address/0x931e9cfa2bc36fd24e74dbe65e0151c3514b2a84)
 
 ### Neon Deployment:
 
@@ -24,6 +26,8 @@ This repo extends AgentMech for Eth Lisbon 2023.
 - [AgentFactoryX](https://neonscan.org/address/0xE3607b00E75f6405248323A9417ff6b39B244b50)
 - [First Mech](https://neonscan.org/address/0xd81964075e24b6f8e4e1569c5f08e6697d9f2d25) 
 - [BlockchainShorts](https://neonscan.org/address/0x3d77596beb0f130a4415df3D2D8232B3d3D31e44)
+- [Mech Multisig](https://neonscan.org/address/0x37426557c128905488e40c0f38d98a53328db196)
+
 
 ## Development
 
