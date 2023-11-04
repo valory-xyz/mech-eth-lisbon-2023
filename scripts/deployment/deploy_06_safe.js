@@ -15,8 +15,6 @@ async function main() {
     const derivationPath = parsedData.derivationPath;
     const providerName = parsedData.providerName;
     const networkURL = parsedData.networkURL;
-    const agentRegistryAddress = parsedData.agentRegistryAddress;
-    const agentFactoryAddress = parsedData.agentFactoryAddress;
     const price = parsedData.price;
     let EOA;
 
@@ -42,7 +40,7 @@ async function main() {
 
     const provider = new ethers.providers.JsonRpcProvider(networkURL);
     const signers = await ethers.getSigners();
-    const safeOwner = provider.getSigner(0)
+    const safeOwner = provider.getSigner(0);
 
     if (useLedger) {
         EOA = new LedgerSigner(provider, derivationPath);
@@ -51,23 +49,23 @@ async function main() {
     }
 
     const ethAdapter = new EthersAdapter({
-      ethers,
-      signerOrProvider: safeOwner
-    })
+        ethers,
+        signerOrProvider: safeOwner
+    });
 
     // EOA address
     const deployer = await EOA.getAddress();
     console.log("EOA is:", deployer);
 
     safeVersion = "1.3.0"
-    const safeFactory = await SafeFactory.create({ ethAdapter, safeVersion })
+    const safeFactory = await SafeFactory.create({ ethAdapter, safeVersion });
 
     const owners = [deployer, "0x87b85ed1E049D2023CF51f92C04103CCD4107c9c"]
-    const threshold = 1
+    const threshold = 1;
     const safeAccountConfig = {
-      owners,
-      threshold
-    }
+        owners,
+        threshold
+    };
     /// singleton: 0xfb1bffC9d739B8D520DaF37dF666da4C687191EA
     /// initializer: 0x0xb63e800d0000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000160000000000000000000000000017062a1dE2FE6b99BE3d9d37841FeD19F5738040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000eb2a22b27c7ad5eee424fd90b376c745e60f914e00000000000000000000000087b85ed1e049d2023cf51f92c04103ccd4107c9c0000000000000000000000000000000000000000000000000000000000000000
     /// saltNonce: 1699103125620

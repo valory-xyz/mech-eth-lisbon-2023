@@ -12,7 +12,6 @@ async function main() {
     const derivationPath = parsedData.derivationPath;
     const providerName = parsedData.providerName;
     const networkURL = parsedData.networkURL;
-    const agentRegistryAddress = parsedData.agentRegistryAddress;
     const agentFactoryAddress = parsedData.agentFactoryAddress;
     const price = parsedData.price;
     let EOA;
