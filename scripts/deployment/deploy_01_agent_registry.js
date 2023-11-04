@@ -27,7 +27,7 @@ async function main() {
             console.log("set NEONSCAN_API_KEY env variable");
             return;
         }
-    } else if (providerName === "zkevm-polygon") {
+    } else if (providerName === "zkevmpolygon") {
         if (!process.env.ZKEVM_POLYGON_API_KEY) {
             console.log("set ZKEVM_POLYGON_API_KEY env variable");
             return;
