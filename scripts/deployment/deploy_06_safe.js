@@ -3,7 +3,7 @@
 const { ethers } = require("hardhat");
 const { LedgerSigner } = require("@anders-t/ethers-ledger");
 
-const { SafeFactory, EthersAdapter } = require("@safe-global/protocol-kit")
+const { SafeFactory, EthersAdapter } = require("@safe-global/protocol-kit");
 
 
 async function main() {
