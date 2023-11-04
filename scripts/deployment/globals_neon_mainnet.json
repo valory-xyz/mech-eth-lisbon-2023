@@ -1,0 +1,14 @@
+{
+  "contractVerification": true,
+  "useLedger": true,
+  "derivationPath": "m/44'/60'/2'/0/0",
+  "providerName": "neon",
+  "gasPriceInGwei": "5",
+  "networkURL": "https://zkevm-rpc.com",
+  "baseURI": "https://gateway.autonolas.tech/ipfs/",
+  "agentRegistryName": "AI Agent Registry",
+  "agentRegistrySymbol": "AI-AGENT-V2",
+  "agentRegistryAddress": "",
+  "agentFactoryAddress": "",
+  "agentMechAddress": ""
+}
