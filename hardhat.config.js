@@ -39,33 +39,20 @@ module.exports = {
         local: {
             url: "http://localhost:8545",
         },
-        mainnet: {
-            url: "https://eth-mainnet.g.alchemy.com/v2/" + ALCHEMY_API_KEY_MAINNET,
-            accounts: accounts,
-            chainId: 1,
-        },
-        polygon: {
-            url: "https://polygon-mainnet.g.alchemy.com/v2/" + ALCHEMY_API_KEY_MATIC,
-            accounts: accounts,
-            chainId: 137,
-        },
         gnosis: {
             url: "https://rpc.gnosischain.com",
             accounts: accounts,
             chainId: 100,
         },
-        goerli: {
-            url: "https://eth-goerli.g.alchemy.com/v2/" + ALCHEMY_API_KEY_GOERLI,
-            chainId: 5,
+        zkevmpolygon: {
+            url: "https://zkevm-rpc.com",
             accounts: accounts,
+            chainId: 1101,
         },
-        polygonMumbai: {
-            url: "https://polygon-mumbai.g.alchemy.com/v2/" + ALCHEMY_API_KEY_MUMBAI,
+        neon: {
+            url: "https://neon-proxy-mainnet.solana.p2p.org",
             accounts: accounts,
-        },
-        chiado: {
-            url: "https://rpc.chiadochain.net",
-            accounts: accounts,
+            chainId: 245022934,
         },
         hardhat: {
             allowUnlimitedContractSize: true
@@ -74,14 +61,6 @@ module.exports = {
     etherscan: {
         customChains: [
             {
-                network: "chiado",
-                chainId: 10200,
-                urls: {
-                    apiURL: "https://gnosis-chiado.blockscout.com/api",
-                    browserURL: "https://gnosis-chiado.blockscout.com/",
-                },
-            },
-            {
                 network: "gnosis",
                 chainId: 100,
                 urls: {
@@ -89,14 +68,27 @@ module.exports = {
                     browserURL: "https://gnosisscan.io/"
                 },
             },
+            {
+                network: "zkevmpolygon",
+                chainId: 1101,
+                urls: {
+                    apiURL: "https://zkevm-rpc.com",
+                    browserURL: "https://zkevm.polygonscan.com/"
+                },
+            },
+            {
+                network: "neon",
+                chainId: 245022934,
+                urls: {
+                    apiURL: "https://neon-proxy-mainnet.solana.p2p.org",
+                    browserURL: "https://neonscan.org/"
+                },
+            },
         ],
         apiKey: {
-            mainnet: ETHERSCAN_API_KEY,
-            polygon: POLYGONSCAN_API_KEY,
+            zkevmpolygon: ZKSCAN_API_KEY,
             gnosis: GNOSISSCAN_API_KEY,
-            goerli: ETHERSCAN_API_KEY,
-            polygonMumbai: POLYGONSCAN_API_KEY,
-            chiado: CHIADOSCAN_API_KEY,
+            neon: NEONSCAN_API_KEY,
         }
     },
     solidity: {

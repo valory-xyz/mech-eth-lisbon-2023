@@ -10,5 +10,7 @@
   "agentRegistrySymbol": "AI-AGENT-V2",
   "agentRegistryAddress": "",
   "agentFactoryAddress": "",
-  "agentMechAddress": ""
+  "agentMechAddress": "",
+  "blockchainShortsName": "",
+  "blockchainShortsSymbol": ""
 }

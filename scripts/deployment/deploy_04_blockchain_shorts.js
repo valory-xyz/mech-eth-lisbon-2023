@@ -11,8 +11,9 @@ async function main() {
     const useLedger = parsedData.useLedger;
     const derivationPath = parsedData.derivationPath;
     const providerName = parsedData.providerName;
-    const agentRegistryAddress = parsedData.agentRegistryAddress;
-    const agentFactoryAddress = parsedData.agentFactoryAddress;
+    const blockchainShortsName = parsedData.blockchainShortsName;
+    const blockchainShortsSymbol = parsedData.blockchainShortsSymbol;
+    const baseURI = parsedData.baseURI;
     let EOA;
 
     if (providerName === "gnosis") {
@@ -47,17 +48,31 @@ async function main() {
     const deployer = await EOA.getAddress();
     console.log("EOA is:", deployer);
 
-    // Get all the contracts
-    const agentRegistry = await ethers.getContractAt("AgentRegistry", agentRegistryAddress);
-
     // Transaction signing and execution
-    // 3. EOA to change the manager of AgentRegistry via `changeManager(AgentRegistry)`;
-    console.log("You are signing the following transaction: agentRegistry.connect(EOA).changeManager()");
-    let result = await agentRegistry.connect(EOA).changeManager(agentFactoryAddress);
+    console.log("1. EOA to deploy BlockchainShorts");
+    const BlockchainShorts = await ethers.getContractFactory("BlockchainShorts");
+    console.log("You are signing the following transaction: BlockchainShorts.connect(EOA).deploy()");
+    const gasPrice = ethers.utils.parseUnits(gasPriceInGwei, "gwei");
+    const blockchainShorts = await BlockchainShorts.connect(EOA).deploy(blockchainShortsName, blockchainShortsSymbol, baseURI, { gasPrice });
+    const result = await blockchainShorts.deployed();
+
     // Transaction details
-    console.log("Contract deployment: AgentRegistry");
-    console.log("Contract address:", agentRegistryAddress);
-    console.log("Transaction:", result.hash);
+    console.log("Contract deployment: BlockchainShorts");
+    console.log("Contract address:", blockchainShorts.address);
+    console.log("Transaction:", result.deployTransaction.hash);
+
+    // Wait for half a minute for the transaction completion
+    await new Promise(r => setTimeout(r, 30000));
+
+    // Writing updated parameters back to the JSON file
+    parsedData.blockchainShortsAddress = blockchainShorts.address;
+    fs.writeFileSync(globalsFile, JSON.stringify(parsedData));
+
+    // Contract verification
+    if (parsedData.contractVerification) {
+        const execSync = require("child_process").execSync;
+        execSync("npx hardhat verify --constructor-args scripts/deployment/verify_01_agent_registry.js --network " + providerName + " " + blockchainShorts.address, { encoding: "utf-8" });
+    }
 }
 
 main()
