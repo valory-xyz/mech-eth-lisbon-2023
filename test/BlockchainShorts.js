@@ -48,7 +48,7 @@ describe("BlockchainShorts", function () {
             ).to.be.revertedWithCustomError(agentRegistry, "ZeroAddress");
         });
 
-        it("Token Id=1 after first successful agent creation must exist ", async function () {
+        it("Token Id=1 after first successful agent creation must exist", async function () {
             const user = signers[2];
             const tokenId = 1;
             const mechManager = signers[1];
@@ -82,6 +82,21 @@ describe("BlockchainShorts", function () {
             ).to.be.revertedWith("NOT_MINTED");
             unitHash = await agentRegistry.mapIdHash(tokenId + 1);
             expect(unitHash).to.equal("0x" + "0".repeat(64));
+        });
+
+        it("Token creation of more than one must be possibl", async function () {
+            const user = signers[2];
+            let tokenId = 1;
+            const mechManager = signers[1];
+            await agentRegistry.connect(mechManager).create(user.address,
+                agentHash);
+            expect(await agentRegistry.balanceOf(user.address)).to.equal(1);
+            expect(await agentRegistry.exists(tokenId)).to.equal(true);
+            tokenId = 2;
+            await agentRegistry.connect(mechManager).create(user.address,
+                agentHash);
+            expect(await agentRegistry.balanceOf(user.address)).to.equal(2);
+            expect(await agentRegistry.exists(tokenId)).to.equal(true);
         });
     });
 });

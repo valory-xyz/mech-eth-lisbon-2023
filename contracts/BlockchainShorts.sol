@@ -43,7 +43,8 @@ contract BlockchainShorts is GenericRegistry {
         if (hash == 0) {
             revert ZeroValue();
         }
-        
+
+        id = totalSupply;
         // Blockchain short with Id = 0 is left empty not to do additional checks for the index zero
         id++;
 
