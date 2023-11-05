@@ -9,8 +9,8 @@ This repo extends AgentMech for Eth Lisbon 2023.
 - [AgentRegistryX](https://gnosisscan.io/address/0x84B4DA67B37B1EA1dea9c7044042C1d2297b80a0)
 - [AgentFactoryX](https://gnosisscan.io/address/0x2C3F556Ff33B6b5279C85CA99ed2Ba8351A2E9Bf)
 - [First Mech](https://gnosisscan.io/address/0x1847f93501704f9aa67fe8af5de7e999af5d0970) 
-- [BlockchainShorts](https://gnosisscan.io/address/0x4891f5894634DcD6d11644fe8E56756EF2681582)
-- [Mech Multisig](https://gnosisscan.io/address/0xd2ff4Cf0927c3cFbF3BB27391044dBaf6f4ca7b9)
+- [BlockchainShorts](https://gnosisscan.io/address/0xd2ff4Cf0927c3cFbF3BB27391044dBaf6f4ca7b9)
+- [Mech Multisig](https://gnosisscan.io/address/0x71126f6eeC5eCDC663e12E8f74FB2021a6e8A7d2)
 
 ### zkEVM Polygon Deployment:
 
